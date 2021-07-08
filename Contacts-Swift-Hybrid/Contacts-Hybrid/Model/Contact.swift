@@ -18,6 +18,4 @@ class Contact: NSObject {
         self.name = name
         self.relationship = relationship
     }
-    
-    
 }
