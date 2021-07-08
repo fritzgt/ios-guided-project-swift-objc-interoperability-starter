@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ContactsController : NSObject
+@interface FGTContactsController : NSObject
 
 @property (nonatomic, readonly, copy) NSArray<Contact *> *contacts;
 
