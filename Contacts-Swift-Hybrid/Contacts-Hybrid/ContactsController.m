@@ -7,10 +7,11 @@
 //
 
 #import "ContactsController.h"
+#import "Contacts_Hybrid-Swift.h"
 
 @interface ContactsController()
 
-@property (nonatomic) NSMutableArray *internalContacts;
+@property (nonatomic) NSMutableArray<Contact *> *internalContacts;
 
 @end
 
@@ -23,6 +24,11 @@
     self = [super init];
     if (self) {
         _internalContacts = [[NSMutableArray alloc] init];
+        
+        Contact *contact = [[Contact alloc] initWithName:@"Fritz"
+                                            relationship:@"Myself"];
+        
+        [_internalContacts addObject: contact];
     }
     return self;
 }
