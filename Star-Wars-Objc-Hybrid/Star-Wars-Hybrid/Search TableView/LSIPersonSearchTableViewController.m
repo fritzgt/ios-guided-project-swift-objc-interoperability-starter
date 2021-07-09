@@ -24,27 +24,21 @@
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-	// TODO: Implement number of rows
-	
-	return 0;
+	return self.people.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-	
-	// TODO: Implement a custom cell named PersonTableViewCell.swift
-	
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonCell" forIndexPath:indexPath];
+    FGTPersonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonCell" forIndexPath:indexPath];
     
-	// TODO: Set the cell to the current Person object
-	
+    LSIPerson *people = [self.people objectAtIndex: indexPath.row];
+    cell.person = people;
 	
     return cell;
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    [FGTPersonController.shared searchForPeopleWith: searchBar.text completion:^(NSArray<LSIPerson *> *people, NSError *error) {
+    [FGTPersonController.sharedController searchForPeopleWithSeachName: searchBar.text completion:^(NSArray<LSIPerson *> *people, NSError *error) {
         if(error){
             NSLog(@"Error searching for:%@, %@",searchBar.text, error);
         }

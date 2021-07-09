@@ -18,9 +18,11 @@ enum APIError: String, Error {
 class PersonController: NSObject {
     // docs: https://lambdaswapi.herokuapp.com/people
     private let baseURL = URL(string: "https://lambdaswapi.herokuapp.com/api/people")!
-    @objc static let shared = PersonController()
+    @objc(sharedController)
+    static let shared = PersonController()
     
-    @objc func searchForPeople(with searchTerm: String, completion: @escaping ([Person]?, Error?) -> Void) {
+    @objc(searchForPeopleWithSeachName:completion:)
+    func searchForPeople(with searchTerm: String, completion: @escaping (_ person: [Person]?, _ error: Error?) -> Void) {
         var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)!
         let searchItem = URLQueryItem(name: "search", value: searchTerm)
         components.queryItems = [searchItem]
