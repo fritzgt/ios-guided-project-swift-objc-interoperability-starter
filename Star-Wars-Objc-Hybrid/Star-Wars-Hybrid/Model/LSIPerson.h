@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 // TODO: Rename class for Swift
-
+NS_SWIFT_NAME(Person)
 @interface LSIPerson : NSObject
 
 // TODO: Add nullabilty annotations
