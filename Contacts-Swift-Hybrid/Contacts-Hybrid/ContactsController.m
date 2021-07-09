@@ -11,7 +11,7 @@
 
 @interface FGTContactsController()
 
-@property (nonatomic) NSMutableArray<FGTContact *> *internalContacts;
+@property (nonatomic) NSMutableArray<Contact *> *internalContacts;
 
 @end
 
@@ -25,7 +25,7 @@
     if (self) {
         _internalContacts = [[NSMutableArray alloc] init];
         
-        FGTContact *contact = [[FGTContact alloc] initWithName:@"Fritz"
+        Contact *contact = [[Contact alloc] initWithName:@"Fritz"
                                             relationship:@"Myself"];
         
         [_internalContacts addObject: contact];
@@ -38,14 +38,5 @@
     return self.internalContacts.copy;
 }
 
-- (FGTContact *)contactAtIndex:(NSInteger)index
-{
-    return [self.internalContacts objectAtIndex:index];
-}
-
-- (NSInteger)contactsCount
-{
-    return self.internalContacts.count;
-}
 
 @end

@@ -9,6 +9,8 @@
 import Foundation
 
 @objcMembers
+
+@objc(FGTContact)
 class Contact: NSObject {
     
     var name: String
