@@ -8,11 +8,12 @@
 
 import UIKit
 
+
 class PersonTableViewCell: UITableViewCell {
     
     // TODO: Add LSIPerson.h to the Bridging header
     // TODO: Add to the Star-Wars-Hybrid target after LSIPerson is defined    
-    var person: LSIPerson? {
+    var person: Person? {
         didSet {
             updateViews()
         }

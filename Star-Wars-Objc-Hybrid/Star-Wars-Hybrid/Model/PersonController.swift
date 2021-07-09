@@ -14,12 +14,13 @@ enum APIError: String, Error {
     case JSONMissingResults
 }
 
+@objc(FGTPersonController)
 class PersonController: NSObject {
     // docs: https://lambdaswapi.herokuapp.com/people
     private let baseURL = URL(string: "https://lambdaswapi.herokuapp.com/api/people")!
-    static let shared = PersonController()
+    @objc static let shared = PersonController()
     
-    func searchForPeople(with searchTerm: String, completion: @escaping ([Person]?, Error?) -> Void) {
+    @objc func searchForPeople(with searchTerm: String, completion: @escaping ([Person]?, Error?) -> Void) {
         var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)!
         let searchItem = URLQueryItem(name: "search", value: searchTerm)
         components.queryItems = [searchItem]
